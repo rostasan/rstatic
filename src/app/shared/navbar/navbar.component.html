@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="/assets/brand/r_logo.svg" alt="" class="logo">
+    </a>
+    <div class="btn-group" dropdown>
+
+        <button dropdownToggle class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-angle-double-down"></i>
+        </button>
+            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li class="nav-item" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a class="nav-link" [routerLink]="['prose']">Prose</a>
+                        </li>
+            </ul>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav content-nav-panel">
+            <!-- <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
+                  </li> -->
+        <!-- <li class="nav-item">
+                 <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">About</a>
+                <span class="nav-link" title="Disabled">About</span>
+            </li> -->
+            <li class="nav-item"  [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['prose']">Prose</a>
+            </li>
+<!--                       
+                        <li class="nav-item" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a class="nav-link" [routerLink]="['addStory']">Add Story</a>
+                        </li> -->
+        <!--    <li class="nav-item">
+               <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">login</a>
+                <span class="nav-link" title="Disabled">Login</span>
+            </li> -->
+        </ul>
+      </div>
+    </div>
+</nav>

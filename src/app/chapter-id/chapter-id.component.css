@@ -1,0 +1,49 @@
+.chapter {
+    margin-bottom: 0px;
+}
+.chapterTitle {
+    margin-top: 0px;
+    font-style: italic;
+}
+a.return:link,
+a.return:visited, 
+a.return:hover,
+a.return:active {
+        text-decoration: none;
+        color: grey;
+    }
+.returnChapter {
+    float: right;
+    clear: both;
+}
+.float-left {
+    float: left;
+    width: 30em;
+    border-radius: 2em;
+    box-shadow: .5em .5em 2em black;
+    margin: 1em;
+}
+
+.float-right {
+    float: right;
+    width: 25em;
+    border-radius: 2em;
+    box-shadow: .5em .5em 2em black;
+    margin: 1em;
+}
+.indent {
+    text-indent: 2em;
+}
+
+.end {
+    float: left;
+      position: relative;
+     left: 50%;
+    width: 20em;
+    height: 20em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: .5em .5em 2em black;
+    margin: 1em;
+}

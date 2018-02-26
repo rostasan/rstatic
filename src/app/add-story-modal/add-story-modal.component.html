@@ -1,0 +1,59 @@
+<button type="button" class="btn" data-toggle="modal" data-target="#addStory">Add Story</button>
+
+<div class="modal fade" id="addStory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>
+          add story
+        </p>
+      </div>
+      <div class="form-group">
+        <form (ngSubmit)="onSubmit()">
+          <div class="">
+            <label for="">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="story.title" name="title" placeholder="Example input">
+          </div>
+          <div class="form-group">
+            <label for="">Description</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="story.description" name="description" placeholder="Example input">
+          </div>
+          <!-- <div class="form-group">
+                          <label for="">Description</label>
+                          <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="story.description" name="description" placeholder="Example input">
+                        </div> -->
+          <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-body">
+        <ul for="inlineFormInputGroup">
+          <li *ngFor="let story of stories">
+            <div class="modal-title">
+              {{story.title}} {{story.description}}
+            </div>
+            <a class="">
+              <i (click)="editStory($event, story)" class="fa fa-pencil"></i>
+            </a>
+            <div *ngIf="editState && storyToEdit.id == story.id">
+              <form (ngSubmit)="updateStory(story)">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="story.title" name="title" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="story.description" name="description" placeholder="Example input">
+                </div>
+                <input type="submit" value="Update Story" class="btn btn-warning text-white">
+                <button class="btn btn-danger" (click)="deleteStory($event, story)">Delete Story</button>
+
+                <i class="" (click)="clearState()" class="fa fa-compress" *ngIf="editState && storyToEdit.id == story.id"></i>
+              </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

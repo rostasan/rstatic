@@ -7,7 +7,22 @@
     "types": []
   },
   "exclude": [
+    "node_modules",
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+    "include": [
+      "src/**/*",
+      "../models/**/*.ts"
+    ],
+    "files": [
+      "main.ts",
+      "polyfills.ts",
+      "typings.d.ts"
+       ],
+    "filesGlob": [
+      "main.ts",
+      "typings.d.ts",
+      "app/**/*.ts"
+    ]
 }

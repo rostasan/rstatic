@@ -1,0 +1,17 @@
+
+<div class="chapterLink">
+<h3>Interstellar Correspondent Danica Star</h3>
+  <div class="loader" *ngIf="loader"></div>
+    
+      <i *ngIf="loader">
+          There is a bug on this page. You may need to manually <a href="javascript:window.location.reload();">refresh</a> if see this message.
+      </i>
+    
+      <div *ngFor="let story of stories">
+        Chapter {{story.chapter}}:
+        <a class="nav-link" [routerLink]="['../chapter-id/partials/chapter_' + story.chapter + '.html']">{{story.title}}</a>
+      </div>
+
+
+</div>
+
