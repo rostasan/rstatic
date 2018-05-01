@@ -18,10 +18,15 @@
       "es2017",
       "dom"
     ],
+    "baseUrl": "src",
     "paths": {
+      "*": [
+        "*",
+        "./app/*"
+      ],
       "@angular/*": [
         "../node_modules/@angular/*"
-      ]
+      ],
     }
   }
 }

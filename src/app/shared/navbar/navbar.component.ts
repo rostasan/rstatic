@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 
 /**
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'app-sd-navbar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'navbar.component.html',
   styleUrls: ['navbar.component.css'],
 })

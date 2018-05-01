@@ -8,6 +8,13 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { LoginComponent } from './login/login.component';
+import { AuthFormComponent } from './login/auth-form/auth-form.component';
+import { AuthRememberComponent } from './login/auth-form/auth-remember.component';
+import { AuthMessageComponent } from './login/auth-form/auth-message/auth-message.component';
+
+
 
 
 /**
@@ -19,11 +26,19 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CommonModule,
     RouterModule,
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ButtonsModule.forRoot()
     ],
-  declarations: [ToolbarComponent, NavbarComponent],
+  declarations: [
+    ToolbarComponent,
+    NavbarComponent,
+    LoginComponent,
+    AuthFormComponent,
+    AuthRememberComponent,
+    AuthMessageComponent,
+    ],
   exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule]
+    CommonModule, FormsModule, RouterModule, LoginComponent, AuthFormComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
