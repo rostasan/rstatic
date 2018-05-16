@@ -5,13 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // conatiners
 import { BlogComponent } from './containers/blog/blog.component';
+import { BlogsComponent } from './containers/blogs/blogs.component';
+
+// components
+
 
 // Shared Module
 import { SharedModule } from 'content/shared/shared.module';
+import { CrudService } from 'content/shared/services/crud.service';
+import { BlogFormComponent } from 'content/blog/components/blog-form/blog-form.component';
+
 
 
 export const ROUTES: Routes = [
-  { path: '', component: BlogComponent }
+  { path: '', component: BlogComponent },
+  { path: 'new', component: BlogsComponent },
+  { path: ':id', component: BlogsComponent }
 ];
 
 @NgModule({
@@ -21,6 +30,11 @@ export const ROUTES: Routes = [
     RouterModule.forChild(ROUTES),
     SharedModule
   ],
-  declarations: [BlogComponent]
+  declarations: [
+    BlogComponent,
+    BlogsComponent,
+    BlogFormComponent],
+  providers: [CrudService],
+  exports: [BlogFormComponent]
 })
 export class BlogModule { }

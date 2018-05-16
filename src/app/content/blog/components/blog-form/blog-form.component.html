@@ -1,0 +1,35 @@
+<div class="blogform">
+    <form [formGroup]="form">
+      <div class="blogform__title">
+        <label for="">
+          <h3>title</h3>
+            <input 
+            type="text"
+            placeholder="Title"
+            formControlName="title">
+        </label>
+      </div>
+      <div class="blogform__description">
+        <h3>Description</h3>
+        <input type="text" placeholder="Blog content here" formControlName="description">
+      
+      </div>
+      <div class="blogform__body">
+        <h3>Body</h3>
+          <input type="text"
+          placeholder="Blog content here"
+          formControlName="body">
+  
+      </div>
+      <button 
+      class="blogform__add" 
+      type="button"
+      (click)="creatBlog()">
+        New Blog      
+      </button>
+      <a href="" class="blogform__cancel"
+      [routerLink]="['../']">
+      Cancel
+      </a>
+    </form>
+</div>

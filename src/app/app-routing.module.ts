@@ -38,4 +38,4 @@ const routes: Routes = [
 //         exports: [RouterModule]
 // })
 
-export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true, enableTracing: true });
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

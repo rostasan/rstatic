@@ -1,10 +1,11 @@
 
 
-<app-sd-navbar></app-sd-navbar>
- <app-edit-nav *ngIf="(user$ | async)?.authenticated">
-
- </app-edit-nav>
+<app-sd-navbar *ngIf="(user$ | async)?.authenticated"></app-sd-navbar>
 <app-header [user]="user$ | async" (logout)="onLogout()">
 </app-header>
+ <!-- <app-edit-nav *ngIf="(user$ | async)?.authenticated">
+
+ </app-edit-nav> -->
+
 <router-outlet></router-outlet>
 

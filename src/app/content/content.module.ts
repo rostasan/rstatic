@@ -31,10 +31,10 @@ export const ROUTES: Routes = [
     RouterModule.forChild(ROUTES),
     CommonModule,
     SharedModule.forRoot(),
-    SerialModule,
     BlogModule,
     PlaysModule,
     ProseModule,
+    SerialModule,
     ScreenplaysModule
   ]
 })

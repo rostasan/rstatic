@@ -1,3 +1,4 @@
+import { AuthService } from 'auth/shared/services/auth/auth.service';
 import { ContentModule } from './content/content.module';
 import { Store } from './store';
 import { SharedLoginModule } from './auth/shared/shared.module';
@@ -35,10 +36,11 @@ import { environment } from '../environments/environment.prod';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
-import { SerialModule } from 'content/serial/serial.module';
-import { EditNavComponent } from 'content/edit-nav/edit-nav.component';
 
 
+export const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'schedule' }
+];
 
 
 
@@ -50,13 +52,13 @@ import { EditNavComponent } from 'content/edit-nav/edit-nav.component';
     ChapterIdComponent,
     HomeComponent,
     NotFoundComponent,
-    AppHeaderComponent,
-    EditNavComponent
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
+    // AppRoutingModule,
+    RouterModule.forRoot(ROUTES),
     AddStoryModule,
     FormsModule,  // <-- import the FormsModule before binding with [(ngModel)]
     AngularFireModule.initializeApp(environment.firebase),
@@ -66,11 +68,10 @@ import { EditNavComponent } from 'content/edit-nav/edit-nav.component';
     SharedModule,
     LoginModule,
     RegisterModule,
-    SerialModule,
     ContentModule,
     SharedLoginModule.forRoot()
   ],
-  providers: [AngularFireAuth, Store],
+  providers: [AngularFireAuth, Store, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

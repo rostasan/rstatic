@@ -1,1 +1,25 @@
-{{ blog$ | aysnc | json}}
+<div class="content-panel panel-default">
+
+    <hr>
+        <a 
+        href="" 
+        class="btn"
+        [routerLink]="['../blog/new']">
+        New??
+        </a>
+        <div *ngIf="blog$ | async as blog; else loading;">
+            <div class="message" *ngIf="!blog.length">
+                Nothing here
+            </div>
+
+            <app-list-item 
+                *ngFor="let blogs of blog"
+                [item]="blogs">
+            
+            </app-list-item>
+        </div>
+        <ng-template #loading>
+            <span class="loader"></span>
+
+        </ng-template>
+</div>

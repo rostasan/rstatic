@@ -32,7 +32,7 @@ export class FirebaseService {
     chapter: string;
 
     constructor(
-        private db: AngularFireDatabase,
+        // private db: AngularFireDatabase,
         private route: ActivatedRoute,
         private afs: AngularFirestore,
         )  {
