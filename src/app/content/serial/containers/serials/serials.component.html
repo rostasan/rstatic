@@ -1,0 +1,21 @@
+<div class="content-panel panel-default">
+
+  <hr>
+  <a href="" class="btn" [routerLink]="['../serial/new']">
+    Add a Story
+  </a>
+  <div *ngIf="serials$ | async as serials; else loading;">
+    <div class="message" *ngIf="!serials.length">
+      Nothing here
+    </div>
+
+    <app-list-item *ngFor="let serial of serials" [item]="serial" (remove)="removeBlog($event)">
+
+    </app-list-item>
+  </div>
+  <ng-template #loading>
+    <span class="loader"></span>
+
+  </ng-template>
+</div>
+

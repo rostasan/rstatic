@@ -17,13 +17,13 @@ import { AuthGuard } from 'auth/shared/guards/auth.guard';
 
 export const ROUTES: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'blog', canActivate: [AuthGuard], loadChildren: () => BlogModule},
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'blog', canActivate: [AuthGuard], loadChildren: () => BlogModule },
   { path: 'serial', canActivate: [AuthGuard], loadChildren: () => SerialModule },
   { path: 'plays', canActivate: [AuthGuard], loadChildren: () => PlaysModule },
   { path: 'prose', canActivate: [AuthGuard], loadChildren: () => ProseModule },
   { path: 'screenplays', canActivate: [AuthGuard], loadChildren: () => ScreenplaysModule }
-  // loadChildren: () Callback method
+  // loadChildren: () Callback method to the ROUTES in the module
 ];
 
 @NgModule({

@@ -1,41 +1,74 @@
-import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
+// import store
 import { Store } from 'app/store';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-
+// services
 import { AuthService } from 'auth/shared/services/auth/auth.service';
-
 
 // Models
 import { Blog } from 'models/blog';
-import { $ } from 'protractor';
+
+// rxjs
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+
+// firebase
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+
+
 
 @Injectable()
 export class CrudService {
 
+  blogDoc: AngularFirestoreDocument<Blog>;
 
-      blog$: Observable<Blog[]> = this.db.list(`blog/${this.uid}`).valueChanges()
-      .do(next => this.store.set('blog', next));
+// Observable stream for the filestore collection
+  blogs$: Observable<Blog[]> = this.afs.collection('blog').snapshotChanges()
+      // map operator to get the document ID
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Blog;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+        // updating the store with the data
+    }).do(next => this.store.set('blog', next));
 
 
   constructor(
     private store: Store,
-    private db: AngularFireDatabase,
-    private authSerice: AuthService
-  ) {
+// to connect to the Cloud Firestore database
+    private afs: AngularFirestore,
+    private authService: AuthService
+  ) {}
 
+  // get user hash ID from firebase, I may use this later to create user specific db entries
+  // get uid() {
+  //   return this.authService.user.uid;
+  // }
+
+  getBlog(id: string) {
+    if (!id) { return Observable.of({});
+    }
+    return this.store.select<Blog[]>('blog')
+    .filter(Boolean)
+    .map(blog => blog.find((blog: Blog) => blog.id === id));
   }
-
-  get uid() {
-    return this.authSerice.user.uid;
-  }
-
   addBlog(blog: Blog) {
-    return this.db.list(`blog/${this.uid}`).push(blog);
+    return this.afs.collection('blog').add(blog);
+    //     return this.afs.doc(`blog/${this.uid}`).set(blog); this adds the user id to the database
   }
 
+  updateBlog(id: string, blog: Blog) {
+    return this.afs.doc(`blog/${id}`).update(blog);
+  }
+
+  removeBlog(blog: Blog) {
+    this.blogDoc = this.afs.doc(`blog/${blog}`);
+    this.blogDoc.delete();
+  }
 }

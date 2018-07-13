@@ -7,14 +7,15 @@
         [routerLink]="['../blog/new']">
         New??
         </a>
-        <div *ngIf="blog$ | async as blog; else loading;">
-            <div class="message" *ngIf="!blog.length">
+        <div *ngIf="blogs$ | async as blogs; else loading;">
+            <div class="message" *ngIf="!blogs.length">
                 Nothing here
             </div>
 
             <app-list-item 
-                *ngFor="let blogs of blog"
-                [item]="blogs">
+                *ngFor="let blog of blogs"
+                [item]="blog"
+                (remove)="removeBlog($event)">
             
             </app-list-item>
         </div>

@@ -1,3 +1,25 @@
-<p>
-  serial works!
-</p>
+<div class="serial content-panel">
+  <div class="serial__title">
+    <img src="assets/images/s.svg" alt="">
+    <br />
+    <span *ngIf="serial$ | async as serial; else title;">
+      {{ serial.title ? 'Edit' : 'Create' }} Serial
+    </span>
+    <ng-template #title>
+      Create Serial?
+
+    </ng-template>
+    <br />
+
+  </div>
+  <div *ngIf="serial$ | async as serial; else loading">
+    <app-serial-form [serial]="serial" (create)="addSerial($event)" (update)="updateSerial($event)" (remove)="removeSerial($event)">
+    </app-serial-form>
+  </div>
+  <ng-template #loading>
+    loading
+    <app-serial-form [serial]="serial" (create)="addSerial($event)">
+
+    </app-serial-form>
+  </ng-template>
+</div>

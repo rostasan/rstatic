@@ -1,6 +1,19 @@
 <div class="list-item">
-  <a href=""
-  [routerLink]="getRoute(item)">
+
+
+  <a [routerLink]="getRoute(item)">
+    <p class="list-item__title">{{ item.title }}</p>
+  </a>
+     <p class="list-item__description">{{ item.description }}</p>
+     <p class="list-item__body" [innerHTML]="item.body"></p>
   
-</a>
+
+    <div class="list-item__delete"
+    *ngIf="toggled">
+      <p>Delete Blog</p>
+      <button class="confirm" type="button" (click)="removeItem()">Yes</button>
+      <button class="cancel" type="button" (click)="toggle()">No</button>
+    </div>
+    <button class="trash" type="button" (click)="toggle()"  *ngIf="!toggled"><img src="assets/images/ui/trash.svg"></button>
+
 </div>

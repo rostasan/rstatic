@@ -12,8 +12,9 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
-  blog$: Observable<Blog[]>;
+  blogs$: Observable<Blog[]>;
   subscription: Subscription;
+  blog: Blog[];
 
   constructor(
     private store: Store,
@@ -21,13 +22,15 @@ export class BlogComponent implements OnInit, OnDestroy {
   ) { }
 
 ngOnInit() {
-  this.blog$ = this.store.select<Blog[]>('blog');
-  this.subscription = this.crudService.blog$.subscribe();
+  this.blogs$ = this.store.select<Blog[]>('blog');
+  this.subscription = this.crudService.blogs$.subscribe();
 }
 
 ngOnDestroy() {
   this.subscription.unsubscribe();
 
 }
-
+  removeBlog(event: Blog) {
+    this.crudService.removeBlog(event);
+  }
 }

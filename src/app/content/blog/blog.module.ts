@@ -15,12 +15,15 @@ import { SharedModule } from 'content/shared/shared.module';
 import { CrudService } from 'content/shared/services/crud.service';
 import { BlogFormComponent } from 'content/blog/components/blog-form/blog-form.component';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
+
+
 
 
 export const ROUTES: Routes = [
   { path: '', component: BlogComponent },
   { path: 'new', component: BlogsComponent },
-  { path: ':id', component: BlogsComponent }
+  { path: 'blog/:id', component: BlogsComponent }
 ];
 
 @NgModule({
@@ -28,7 +31,8 @@ export const ROUTES: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(ROUTES),
-    SharedModule
+    SharedModule,
+    EditorModule
   ],
   declarations: [
     BlogComponent,

@@ -7,29 +7,55 @@
             type="text"
             placeholder="Title"
             formControlName="title">
+            <div class="error" *ngIf="required">
+              This feild is required
+            </div>
         </label>
       </div>
       <div class="blogform__description">
         <h3>Description</h3>
         <input type="text" placeholder="Blog content here" formControlName="description">
-      
+        <div class="error" *ngIf="required">
+          This feild is required
+        </div>
       </div>
       <div class="blogform__body">
         <h3>Body</h3>
           <input type="text"
           placeholder="Blog content here"
           formControlName="body">
+          <div class="error" *ngIf="required">
+            This feild is required
+          </div>
   
       </div>
       <button 
       class="blogform__add" 
       type="button"
-      (click)="creatBlog()">
+      *ngIf="!exists"
+      (click)="createBlog()">
         New Blog      
       </button>
+      <button 
+      class="blogform__add" 
+      type="button"
+      *ngIf="exists"
+      (click)="updateBlog()">
+        Update Blog
+      </button>
       <a href="" class="blogform__cancel"
-      [routerLink]="['../']">
+      [routerLink]="['/blog']">
       Cancel
       </a>
+      <div class="blog-form__delete" *ngIf="exists">
+            <div *ngIf="toggled">
+              <p>Delete Blog</p>
+              <button class="confirm" type="button" (click)="removeBlog()">Yes</button>
+              <button class="cancel" type="button" (click)="toggle()">No</button>
+            </div>
+            <button class="button button--delete" type="button" (click)="toggle()" *ngIf="!toggled">
+              Delete?
+            </button>
+      </div>
     </form>
 </div>

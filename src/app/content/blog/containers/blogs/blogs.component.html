@@ -1,14 +1,29 @@
 <div class="blog content-panel">
   <div class="blog__title">
     <img src="assets/images/b.svg" alt=""><br />
-    <span>Create Blog</span>
-
+    <span *ngIf="blog$ | async as blog; else title;">
+      {{ blog.title ? 'Edit' : 'Create' }} Blog
+    </span>
+    <ng-template #title>
+      Create Blog?
+    </ng-template>
+<br />
 
   </div>
-  <div>
+  <div *ngIf="blog$ | async as blog; else loading" >
     <app-blog-form
-      (create)="addBlog($event)">
+    [blog]="blog"
+      (create)="addBlog($event)"
+      (update)="updateBlog($event)"
+      (remove)="removeBlog($event)">
     </app-blog-form>
   </div>
-
+  <ng-template #loading>
+    loading
+          <app-blog-form
+           [blog]="blog" 
+           (create)="addBlog($event)">
+            
+          </app-blog-form>
+  </ng-template>
 </div>

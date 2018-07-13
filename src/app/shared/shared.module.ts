@@ -6,9 +6,13 @@ import { RouterModule } from '@angular/router';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
+    // NGX bootstrap modules replacing jQuery
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
+
 import { LoginComponent } from './login/login.component';
 import { AuthFormComponent } from './login/auth-form/auth-form.component';
 import { AuthRememberComponent } from './login/auth-form/auth-remember.component';
@@ -25,6 +29,7 @@ import { AuthMessageComponent } from './login/auth-form/auth-message/auth-messag
   imports: [
     CommonModule,
     RouterModule,
+    // NGX bootstrap modules replacing jQuery
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     ButtonsModule.forRoot()

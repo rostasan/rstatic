@@ -37,6 +37,8 @@ export class AuthService {
       return this.af.authState;
     }
 
+
+
     createUser(email: string, password: string) {
       return this.af.auth
         .createUserWithEmailAndPassword(email, password);

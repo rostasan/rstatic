@@ -1,0 +1,21 @@
+<svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#ffffff" id="canvas_background" height="22" width="20" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" y2="18.406696" x2="4.95297" y1="1.499812" x1="1.921606" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_4" y2="18.375445" x2="13.359533" y1="1.468561" x1="16.234643" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="none"/>
+  <ellipse stroke="#000" ry="0.515644" rx="4.406415" id="svg_5" cy="18.609829" cx="9.078124" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="none"/>
+  <ellipse ry="0.484393" rx="7.46903" id="svg_6" cy="1.546689" cx="8.95312" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="15.469086" x2="6.796789" y1="5.374957" x1="5.140477" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_8" y2="15.281579" x2="9.140627" y1="5.093697" x1="9.171878" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" stroke="#000" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_9" y2="15.375332" x2="11.515716" y1="5.312455" x1="13.203279" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="none"/>
+  <rect stroke="null" id="svg_13" height="2.093828" width="8.094053" y="16.500374" x="5.109225" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="#ffffff"/>
+ </g>
+</svg>
