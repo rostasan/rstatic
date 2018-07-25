@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // import store
-import { Store } from 'app/store';
+import { Store } from 'store';
 
 // services
 import { AuthService } from 'auth/shared/services/auth/auth.service';

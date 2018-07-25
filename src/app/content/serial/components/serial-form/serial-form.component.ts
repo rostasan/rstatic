@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, EventEmitter, Output, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Serial } from 'models/serial';
 
@@ -11,7 +11,7 @@ import { Serial } from 'models/serial';
   templateUrl: './serial-form.component.html',
   styleUrls: ['./serial-form.component.scss']
 })
-export class SerialFormComponent implements OnChanges {
+export class SerialFormComponent implements OnChanges, OnInit {
 
   @Input()
   serial: Serial;
@@ -31,13 +31,16 @@ export class SerialFormComponent implements OnChanges {
 
   form = this.fb.group({
     title: ['', Validators.required],
-    description: ['', Validators.required],
-    body: ['', Validators.required]
+    description: ['', Validators.required]
   });
 
   constructor(
     private fb: FormBuilder
   ) { }
+
+  ngOnInit() {
+    console.log('serail form');
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.serial && this.serial.title) {
@@ -52,10 +55,12 @@ export class SerialFormComponent implements OnChanges {
       this.form.get('title').hasError('required') &&
       this.form.get('title').touched
     );
+
   }
   createSerial() {
     if (this.form.valid) {
       this.create.emit(this.form.value);
+      console.log('create called');
     }
   }
 

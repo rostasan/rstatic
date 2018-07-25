@@ -5,7 +5,9 @@ import { RouterModule } from '@angular/router';
 
 // thirdparty modules
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { ListItemComponent } from './components/list-item/list-item.component';
+import { ListItemComponent } from 'content/shared/components/list-item/list-item.component';
+import { ViewComponent } from 'content/shared/components/view/view.component';
+import { ListGroupComponent } from 'content/shared/components/list-group/list-group.component';
 
 @NgModule({
   imports: [
@@ -13,8 +15,16 @@ import { ListItemComponent } from './components/list-item/list-item.component';
     RouterModule,
     AngularFireDatabaseModule
   ],
-  declarations: [ListItemComponent],
-  exports: [ListItemComponent]
+  declarations: [
+    ListItemComponent,
+    ViewComponent,
+    ListGroupComponent
+  ],
+  exports: [
+    ListItemComponent,
+    ViewComponent,
+    ListGroupComponent
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

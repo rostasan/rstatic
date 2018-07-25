@@ -1,0 +1,47 @@
+<div class="episodeform">
+  <form [formGroup]="form">
+    <div class="episode-form__delete" *ngIf="exists">
+      <div *ngIf="toggled">
+        <p>Delete Episode</p>
+        <button class="confirm" type="button" (click)="removeEpisode()">Yes</button>
+        <button class="cancel" type="button" (click)="toggle()">No</button>
+      </div>
+      <button class="button button--delete" type="button" (click)="toggle()" *ngIf="!toggled">
+        Delete?
+      </button>
+    </div>
+    <div class="episodeform__title">
+      <label for="">
+        <h3>title</h3>
+        <input type="text" placeholder="Title" formControlName="title">
+        <div class="error" *ngIf="required">
+          This feild is required
+        </div>
+      </label>
+    </div>
+    <div class="episodeform__description">
+      <h3>Description</h3>
+      <input type="text" placeholder="Episode content here" formControlName="description">
+      <div class="error" *ngIf="required">
+        This feild is required
+      </div>
+    </div>
+    <div class="episodeform__body">
+      <h3>Body</h3>
+      <textarea type="text" placeholder="Episode content here" formControlName="body" [froalaEditor]></textarea>
+      <div class="error" *ngIf="required">
+        This feild is required
+      </div>
+
+    </div>
+    <button class="episodeform__add" type="button" *ngIf="!exists" (click)="createEpisode()">
+      New Story
+    </button>
+    <button class="episodeform__add" type="button" *ngIf="exists" (click)="updateEpisode()">
+      Update story
+    </button>
+    <a href="" class="episodeform__cancel" [routerLink]="['/episode']">
+      Cancel
+    </a>
+  </form>
+</div>

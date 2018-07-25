@@ -1,17 +1,21 @@
 <div class="content-panel panel-default">
-
+    <img src="assets/images/s.svg" alt="">
+    <br />
   <hr>
   <a href="" class="btn" [routerLink]="['../serial/new']">
-    Add a Story
+    Create a New Serial
   </a>
   <div *ngIf="serials$ | async as serials; else loading;">
     <div class="message" *ngIf="!serials.length">
       Nothing here
     </div>
+    <app-list-group *ngFor="let serial of serials" [item]="serial">
+      
+    </app-list-group>
 
-    <app-list-item *ngFor="let serial of serials" [item]="serial" (remove)="removeBlog($event)">
+    <!-- <app-list-item *ngFor="let serial of serials" [item]="serial" (remove)="removeSerial($event)">
 
-    </app-list-item>
+    </app-list-item> -->
   </div>
   <ng-template #loading>
     <span class="loader"></span>

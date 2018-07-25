@@ -1,101 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="250"
-   height="175"
-   version="1.1"
-   id="svg95"
-   sodipodi:docname="r_logo.svg"
-   inkscape:export-filename="L:\Static\rstatic\src\assets\brand\r_logo.png"
-   inkscape:export-xdpi="15.36"
-   inkscape:export-ydpi="15.36"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
-  <defs
-     id="defs99" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="2050"
-     id="namedview97"
-     showgrid="false"
-     inkscape:zoom="1.18"
-     inkscape:cx="-121.61017"
-     inkscape:cy="574.57627"
-     inkscape:window-x="3348"
-     inkscape:window-y="-12"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg_2" />
-  <title
-     id="title81">logo</title>
-  <metadata
-     id="metadata7">image/svg+xml<rdf:RDF>
-  <cc:Work
-     rdf:about="">
-    <dc:format>image/svg+xml</dc:format>
-    <dc:type
-       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:title>logo</dc:title>
-  </cc:Work>
-</rdf:RDF>
-</metadata>
-  <g
-     id="g93"
-     transform="matrix(0.96960439,0,0,0.91669903,0.30301938,-10.411131)">
-    <title
-       id="title84">Layer 1</title>
-    <g
-       display="inline"
-       id="layer2"
-       style="display:inline" />
-    <g
-       stroke="null"
-       id="svg_2">
-      <text
-         stroke="null"
-         transform="scale(1.1201145,0.89276588)"
-         font-size="144px"
-         font-style="normal"
-         font-weight="bold"
-         id="text2985"
-         y="154.61446"
-         x="24.999123"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:bold;font-size:204.56825256px;font-family:'Courier New';fill:#000000;stroke-width:1.42061281"><tspan
-           stroke="null"
-           transform="translate(9.1295732,14.299826)"
-           font-weight="normal"
-           y="154.61446"
-           x="24.999123"
-           id="tspan2987"
-           style="font-weight:normal;stroke-width:1.42061281">R</tspan></text>
-      <text
-         stroke="null"
-         transform="matrix(1.4631706,0,0,1.0360765,-8.4688649,11.180887)"
-         font-size="40px"
-         font-style="normal"
-         font-weight="normal"
-         id="text2989"
-         y="157.67824"
-         x="8.9686213"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;font-family:Rod;fill:#000000"><tspan
-           stroke="null"
-           id="tspan2993"
-           y="157.67824"
-           x="8.9686213">rostasan</tspan></text>
-    </g>
+<svg width="200" height="145" xmlns="http://www.w3.org/2000/svg">
+
+ <title>logo</title>
+ <metadata id="metadata7">image/svg+xmlimage/svg+xmllogo</metadata>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="147" width="202" y="-1" x="-1"/>
+ </g>
+ <g transform="matrix(0.96960439,0,0,0.91669903,0.30301938,-10.411131) " id="g93">
+  <title>Layer 1</title>
+  <g id="layer2" display="inline"/>
+  <g id="svg_2" stroke="null">
+   <text font-family="'Courier New'" fill="#000000" stroke-width="1.42061" xml:space="preserve" x="24.99912" y="141.17309" id="text2985" font-weight="bold" font-style="normal" font-size="204.56825px" transform="translate(0,-1) scale(1.1201144456863403,0.8927658796310425) " stroke="null">
+    <tspan stroke-width="1.42061" id="tspan2987" x="24.99912" y="141.17309" font-weight="normal" stroke="null">R</tspan>
+   </text>
+   <text font-family="Rod" fill="#000000" xml:space="preserve" x="8.96862" y="145.1309" id="text2989" font-weight="normal" font-style="normal" font-size="40px" transform="matrix(1.4631706,0,0,1.0360765,-8.4688649,11.180887) " stroke="null">
+    <tspan x="8.96862" y="145.1309" id="tspan2993" stroke="null">rostasan</tspan>
+   </text>
   </g>
+ </g>
 </svg>

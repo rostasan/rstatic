@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
     // NGX bootstrap modules replacing jQuery
@@ -35,15 +34,19 @@ import { AuthMessageComponent } from './login/auth-form/auth-message/auth-messag
     ButtonsModule.forRoot()
     ],
   declarations: [
-    ToolbarComponent,
     NavbarComponent,
     LoginComponent,
     AuthFormComponent,
     AuthRememberComponent,
     AuthMessageComponent,
     ],
-  exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule, LoginComponent, AuthFormComponent]
+  exports: [
+    NavbarComponent,
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    LoginComponent,
+    AuthFormComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

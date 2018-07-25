@@ -1,9 +1,10 @@
-import { Store } from 'app/store';
+import { Store } from 'store';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SerialService } from 'content/shared/services/serial/serial.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Serial } from 'models/serial';
+
 
 @Component({
   selector: 'app-serials',
@@ -14,7 +15,8 @@ export class SerialsComponent implements OnInit, OnDestroy {
 
   serials$: Observable<Serial[]>;
   subscription: Subscription;
-  serial: Serial[];
+
+
 
   constructor(
     private store: Store,

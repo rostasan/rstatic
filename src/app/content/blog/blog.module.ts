@@ -23,7 +23,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 export const ROUTES: Routes = [
   { path: '', component: BlogComponent },
   { path: 'new', component: BlogsComponent },
-  { path: 'blog/:id', component: BlogsComponent }
+  { path: ':id', component: BlogsComponent }
 ];
 
 @NgModule({

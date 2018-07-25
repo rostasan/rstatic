@@ -1,10 +1,16 @@
 <div class="app-header">
   <div class="wrapper">
-
+            <a routerLink="blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
+            <a routerLink="/plays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Plays</a>
+            <a routerLink="prose" routerLinkActive="active">Prose</a>
+            <a routerLink="screenplays" routerLinkActive="active">Screenplays</a>
+            <a routerLink="serial" routerLinkActive="active">Serial</a>
+            <a routerLink="edit" routerLinkActive="active">Edit</a>
     <div
     *ngIf="user?.authenticated">
       <span (click)="logoutUser()">
 <!-- <img src="../../assets/images/OnOff.svg" height="20em" alt=""> -->
+
 
       </span>
     </div>

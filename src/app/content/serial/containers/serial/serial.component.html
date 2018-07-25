@@ -2,24 +2,38 @@
   <div class="serial__title">
     <img src="assets/images/s.svg" alt="">
     <br />
+
     <span *ngIf="serial$ | async as serial; else title;">
       {{ serial.title ? 'Edit' : 'Create' }} Serial
     </span>
     <ng-template #title>
-      Create Serial?
+      Create Serial? 
 
     </ng-template>
     <br />
 
   </div>
-  <div *ngIf="serial$ | async as serial; else loading">
-    <app-serial-form [serial]="serial" (create)="addSerial($event)" (update)="updateSerial($event)" (remove)="removeSerial($event)">
-    </app-serial-form>
+  <div class="serial-form__delete">
+      <div *ngIf="serial$ | async as serial; else loading">
+
+            <div *ngIf="toggledContent">
+              <button class="button button--delete" type="button" (click)="toggleContent()" *ngIf="toggledContent">
+                Edit Serial 
+              </button> 
+              <app-list-item [item]="serial" (remove)="removeSerial($event)">
+              </app-list-item>
+            </div>
+        <div *ngIf="!toggledContent">
+           <button class="cancel" type="button" (click)="toggleContent()">Read Only</button>
+              <app-serial-form [serial]="serial" (create)="addSerial($event)" (update)="updateSerial($event)" (remove)="removeSerial($event)">
+              </app-serial-form>
+        </div>
   </div>
+  </div>
+</div>
   <ng-template #loading>
     loading
     <app-serial-form [serial]="serial" (create)="addSerial($event)">
 
     </app-serial-form>
   </ng-template>
-</div>

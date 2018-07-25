@@ -1,6 +1,6 @@
 
-import { User } from 'app/models/user';
-import { Store } from 'app/store';
+import { User } from 'models/user';
+import { Store } from 'store';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
 
