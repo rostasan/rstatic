@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Serial } from 'models/serial';
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // import store
 import { Store } from 'store';
@@ -25,11 +25,14 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 
 @Injectable()
 export class EpisodeService {
-  course$ = this.route.parent.params.switchMap(params => {
-    return this.store
-      .select()
-      .map((courses: any) => courses.courses.find(course => course._id === params.id));
-  });
+  private sub: any;
+  private parentRoute: any;
+
+  // course$ = this.route.parent.params.switchMap(params => {
+  //   return this.store
+  //     .select()
+  //     .map((courses: any) => courses.courses.find(course => course._id === params.id));
+  // });
 
   EpisodeDoc: AngularFirestoreDocument<Episode>;
   episodeDoc: any;
@@ -54,7 +57,13 @@ export class EpisodeService {
     private afs: AngularFirestore,
     private authService: AuthService,
     private route: ActivatedRoute
-  ) { this.episodeDoc = this.afs.doc('serial/VOTP2Hk442J6GmhXPQr3');  }
+  ) {
+    // this gets the ID of the parent document of the new collection Episode.
+    const id: Observable<string> = route.params.map(p => p.id);
+    const url: Observable<string> = route.url.map(segments => segments.join(''));
+    const serialID = route.data.map(d => d.serialID);
+    this.episodeDoc = this.afs.doc('serial/serialID');  }
+
 
   // get user hash ID from firebase, I may use this later to create user specific db entries
   // get uid() {
