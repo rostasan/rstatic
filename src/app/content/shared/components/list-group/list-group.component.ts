@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
-import { Serial } from 'models/serial';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
@@ -10,9 +10,6 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 export class ListGroupComponent implements OnInit {
 
   @Input()
-  serial: Serial;
-
-  @Input()
   item: any;
 
   @Output()
@@ -21,12 +18,17 @@ export class ListGroupComponent implements OnInit {
   toggled = false;
   currentRoute: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.currentRoute = this.router.url;
+    console.log('current route list-group', this.currentRoute);
   }
+  removeItem() {
+    this.remove.emit(this.item.id);
 
+  }
 
   toggle() {
     this.toggled = !this.toggled;
@@ -34,6 +36,6 @@ export class ListGroupComponent implements OnInit {
   }
   getRoute(item: any) {
     // dollar-sign curly-bracket is a ES6 string literal. This allows the route to be shared between upper level components
-    return [`../${this.currentRoute}`, item.id];
+    return [`${this.currentRoute}`, item.id];
   }
 }

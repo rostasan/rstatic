@@ -1,18 +1,31 @@
-<div class="app-header">
-  <div class="wrapper">
-            <a routerLink="blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
-            <a routerLink="/plays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Plays</a>
-            <a routerLink="prose" routerLinkActive="active">Prose</a>
-            <a routerLink="screenplays" routerLinkActive="active">Screenplays</a>
-            <a routerLink="serial" routerLinkActive="active">Serial</a>
-            <a routerLink="edit" routerLinkActive="active">Edit</a>
+
+  <div class="btn-group">
+
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav content-nav-panel">
+                      <li class="nav-item" routerLinkActive="active item" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="nav-link" routerLink="blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>  
+                      </li>
+                      <li class="nav-item" routerLinkActive="active item" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="nav-link" routerLink="plays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Plays</a>
+                      </li>
+                      <li class="nav-item" routerLinkActive="active item" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="nav-link" routerLink="prose" routerLinkActive="active">Prose</a>
+                      </li>
+                      <li class="nav-item" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                         <a class="nav-link" routerLink="screenplays" routerLinkActive="active">Screenplays</a>
+                      </li>
+                      <li class="nav-item" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                         <a class="nav-link" routerLink="serial" routerLinkActive="active">Serial</a>
+                      </li>
+                    </ul>
+                  </div>
     <div
     *ngIf="user?.authenticated">
       <span (click)="logoutUser()">
-<!-- <img src="../../assets/images/OnOff.svg" height="20em" alt=""> -->
+<img src="assets/images/OnOff.svg" height="50%" alt="">
 
 
       </span>
     </div>
   </div>
-</div>

@@ -1,4 +1,5 @@
 export interface Episode {
+    collection?: string;
     title?: string;
     description?: string;
     body?: string;

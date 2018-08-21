@@ -1,6 +1,7 @@
 
+import { Episode } from 'models/episode';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, Input } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -9,8 +10,10 @@ import 'rxjs/add/operator/switchMap';
 // interfaces
 import { Serial } from 'models/serial';
 
+
 // services
 import { SerialService } from 'content/shared/services/serial/serial.service';
+import { EpisodeService } from 'content/shared/services/episode/episode.service';
 
 import { Store } from 'store';
 
@@ -21,29 +24,52 @@ import { Store } from 'store';
 })
 export class SerialComponent implements OnInit, OnDestroy {
 
-  @Output() SerialID = this.route.params
-    .switchMap(param => this.serialService.getSerial(param.id));
+
+  @Input()
+  item: any;
+
+  // @Output() SerialID = this.route.snapshot.params.id;
 
   toggledContent = true;
   exists = false;
 
   serials$: Observable<Serial[]>;
+  episodes$: Observable<Episode[]>;
   serial$: Observable<Serial>;
   subscription: Subscription;
+  currentRoute: any;
+
+  SerialID: any;
 
   constructor(
     private store: Store,
     private serialService: SerialService,
+    private episodeService: EpisodeService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
+    this.currentRoute = this.router.url;
+
+    if (this.SerialID === 'new') {
+        console.log('new route');
+    } else {
     this.subscription = this.serialService.serials$.subscribe();
     this.serials$ = this.store.select<Serial[]>('serial');
     this.serial$ = this.route.params
-        .switchMap(param => this.serialService.getSerial(param.id));
+      .switchMap(paramMap => this.serialService.getSerial(paramMap.id));
+
+    this.SerialID = this.route.snapshot.params.id;
+    // console.log(this.SerialID, `serial/${this.SerialID}/episode`);
+    this.episodes$ = this.store.select<Episode[]>('episode');
+    this.subscription = this.episodeService.getEpisode(this.SerialID).subscribe();
+      console.log('Normal route', this.currentRoute);
+    }
+
+
+    // console.log(this.SerialID);
   }
 
   ngOnDestroy() {
@@ -74,4 +100,9 @@ export class SerialComponent implements OnInit, OnDestroy {
     this.toggledContent = !this.toggledContent;
 
   }
+  getRouteEpisode() {
+    // dollar-sign curly-bracket is a ES6 string literal. This allows the route to be shared between upper level components
+    return [`${this.currentRoute}/episode/new`];
+  }
+
 }

@@ -1,6 +1,5 @@
-
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -19,9 +18,13 @@ import { Store } from 'store';
   templateUrl: './episode.component.html',
   styleUrls: ['./episode.component.scss']
 })
+
+
 export class EpisodeComponent implements OnInit, OnDestroy {
 
 
+  @Output() EpisodeID = this.route.params
+    .switchMap(param => this.episodeService.getEpisodeId(param.id));
 
   toggledContent = true;
   exists = false;
@@ -39,18 +42,21 @@ export class EpisodeComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.subscription = this.episodeService.episodes$.subscribe();
     this.episodes$ = this.store.select<Episode[]>('episode');
+    this.subscription = this.episodeService.episodes$.subscribe();
     this.episode$ = this.route.params
-      .switchMap(param => this.episodeService.getEpisode(param.id));
+      .switchMap(param => this.episodeService.getEpisodeId(param.id));
+      console.log('hello');
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  async addEpisode(event: Episode) {
-    await this.episodeService.addEpisode(event);
+  async addEpisode(event: Episode, SerialID) {
+    const ID = event.title;
+    const customId = ID.replace(' ', '_');
+    await this.episodeService.addEpisode(event, customId, SerialID);
     this.backToEpisode();
   }
 

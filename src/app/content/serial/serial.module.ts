@@ -1,4 +1,3 @@
-import { EpisodeService } from 'content/shared/services/episode/episode.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,19 +7,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 // conatiners
-import { SerialComponent } from 'content/serial/containers/serial/serial.component';
 import { SharedModule } from 'content/shared/shared.module';
+import { SerialComponent } from 'content/serial/containers/serial/serial.component';
 import { SerialsComponent } from 'content/serial/containers/serials/serials.component';
 import { SerialFormComponent } from 'content/serial/components/serial-form/serial-form.component';
 import { SerialService } from 'content/shared/services/serial/serial.service';
-import { EpisodeComponent } from 'content/serial/containers/episode/episode.component';
-import { EpisodeFormComponent } from 'content/serial/components/episode-form/episode-form.component';
+
 
 
 export const ROUTES: Routes = [
   { path: '', component: SerialsComponent },
   { path: 'new', component: SerialComponent },
-  { path: ':id/episode', component: EpisodeComponent },
   { path: ':id', component: SerialComponent }
 ];
 
@@ -35,16 +32,13 @@ export const ROUTES: Routes = [
   ],
   declarations: [
     SerialComponent,
-    SerialFormComponent,
     SerialsComponent,
-    EpisodeComponent,
-    EpisodeFormComponent],
+    SerialFormComponent],
     providers: [
-      SerialService,
-      EpisodeService
+      SerialService
     ],
     exports: [
-      SerialFormComponent,
-      EpisodeFormComponent]
+      SerialFormComponent
+    ]
 })
 export class SerialModule { }

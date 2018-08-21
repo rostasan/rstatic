@@ -30,7 +30,7 @@ ngOnDestroy() {
   this.subscription.unsubscribe();
 
 }
-  removeBlog(event: Blog) {
-    this.crudService.removeBlog(event);
+  removeBlog(id: string, event: Blog) {
+    this.crudService.removeBlog(id, event);
   }
 }

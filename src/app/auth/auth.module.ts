@@ -4,6 +4,7 @@ import { SharedModule } from './../shared/shared.module';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserComponent } from './user/user.component';
 
 export const ROUTES: Routes = [
   {
@@ -24,6 +25,6 @@ export const ROUTES: Routes = [
     RouterModule.forChild(ROUTES),
     SharedModule.forRoot()
   ],
-  declarations: []
+  declarations: [UserComponent]
 })
 export class AuthModule { }

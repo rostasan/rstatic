@@ -58,8 +58,18 @@ export class CrudService {
     .filter(Boolean)
     .map(blog => blog.find((blog: Blog) => blog.id === id));
   }
-  addBlog(blog: Blog) {
-    return this.afs.collection('blog').add(blog);
+
+  getBlogTitle(customId: string) {
+    if (!customId) {
+      return Observable.of({});
+    }
+    return this.store.select<Blog[]>('blog')
+      .filter(Boolean)
+      .map(blog => blog.find((blog: Blog) => blog.title === customId));
+  }
+
+  addBlog(blog: Blog, customId: string) {
+    return this.afs.collection('blog').doc(customId).set(blog);
     //     return this.afs.doc(`blog/${this.uid}`).set(blog); this adds the user id to the database
   }
 
@@ -67,8 +77,7 @@ export class CrudService {
     return this.afs.doc(`blog/${id}`).update(blog);
   }
 
-  removeBlog(blog: Blog) {
-    this.blogDoc = this.afs.doc(`blog/${blog}`);
-    this.blogDoc.delete();
+  removeBlog(id: string, blog: Blog) {
+    return this.afs.doc(`blog/${id}`).delete();
   }
 }

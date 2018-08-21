@@ -1,16 +1,9 @@
 <div class="list-item">
-            <a href="" class="btn" [routerLink]="['episode']">
-              Create Episode
-            </a>
-  <a [routerLink]="getRoute(item)">
-    <p class="list-item__title">{{ item.title }}</p>
-  </a>
+<a [routerLink]="getRoute(item)">
+    <h1 class="list-item__title">{{ item.title }}
+   </h1>
+</a>
+
      <p class="list-item__description">{{ item.description }}</p>
-    <div class="list-item__delete"
-    *ngIf="toggled">
-      <p>Delete Blog</p>
-      <button class="confirm" type="button" (click)="removeItem()">Yes</button>
-      <button class="cancel" type="button" (click)="toggle()">No</button>
-    </div>
-    <button class="trash" type="button" (click)="toggle()"  *ngIf="!toggled"><img src="assets/images/ui/trash.svg"></button>
+
 </div>

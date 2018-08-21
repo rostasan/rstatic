@@ -8,7 +8,8 @@ import { State } from 'state';
 
 const state: State = {
     user: undefined,
-    blog: undefined
+    blog: undefined,
+    serial: undefined
 
 
 };

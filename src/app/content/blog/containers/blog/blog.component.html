@@ -2,25 +2,23 @@
 
     <hr>
         <a 
-        href="" 
-        class="btn"
-        [routerLink]="['../blog/new']">
-        New??
+            href="" 
+            class="btn"
+            [routerLink]="['../blog/new']">
+                Create a New
         </a>
         <div *ngIf="blogs$ | async as blogs; else loading;">
             <div class="message" *ngIf="!blogs.length">
                 Nothing here
             </div>
 
-            <app-list-item 
+            <app-list-group
                 *ngFor="let blog of blogs"
                 [item]="blog"
                 (remove)="removeBlog($event)">
-            
-            </app-list-item>
+            </app-list-group>
         </div>
         <ng-template #loading>
             <span class="loader"></span>
-
         </ng-template>
 </div>

@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -39,7 +39,9 @@ export class BlogsComponent implements OnInit, OnDestroy {
   }
 
   async addBlog(event: Blog) {
-    await this.crudService.addBlog(event);
+    const ID = event.title;
+    const customId = ID.replace(' ', '_');
+    await this.crudService.addBlog(event, customId);
     this.backToBlog();
   }
 
@@ -51,7 +53,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
 
   async removeBlog(event: Blog) {
     const id = this.route.snapshot.params.id;
-    await this.crudService.removeBlog(id);
+    await this.crudService.removeBlog(id, event);
     this.backToBlog();
   }
 

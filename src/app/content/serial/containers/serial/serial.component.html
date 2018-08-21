@@ -7,29 +7,50 @@
       {{ serial.title ? 'Edit' : 'Create' }} Serial
     </span>
     <ng-template #title>
-      Create Serial? 
-
+      No Data? 
     </ng-template>
     <br />
 
   </div>
-  <div class="serial-form__delete">
-      <div *ngIf="serial$ | async as serial; else loading">
 
-            <div *ngIf="toggledContent">
-              <button class="button button--delete" type="button" (click)="toggleContent()" *ngIf="toggledContent">
-                Edit Serial 
-              </button> 
-              <app-list-item [item]="serial" (remove)="removeSerial($event)">
-              </app-list-item>
-            </div>
+<!-- start display Serial  -->
+      <div *ngIf="serial$ | async as serial; else loading">
+        <div *ngIf="toggledContent">
+          <button class="button button--delete" type="button" (click)="toggleContent()" *ngIf="toggledContent">
+            Edit Serial 
+          </button> 
+            <app-view [item]="serial" (remove)="removeSerial($event)">
+            </app-view>
+          <ng-template #loading>
+            <span class="loader"></span>
+          </ng-template>
+        </div>
         <div *ngIf="!toggledContent">
            <button class="cancel" type="button" (click)="toggleContent()">Read Only</button>
               <app-serial-form [serial]="serial" (create)="addSerial($event)" (update)="updateSerial($event)" (remove)="removeSerial($event)">
               </app-serial-form>
         </div>
-  </div>
-  </div>
+      </div>
+<!-- end Serial Display -->
+<!-- Start Episode list -->
+      <div *ngIf="episodes$ | async as episodes; else loading;">
+        <div class="message" *ngIf="!episodes.length">
+          Nothing here
+        </div>
+            <a href="" class="btn" [routerLink]="getRouteEpisode()">
+              Create a New Episode
+            </a>
+         <app-list-group *ngFor="let episode of episodes" [item]="episode">
+        </app-list-group>
+      </div>
+      <ng-template #loading>
+        <span class="loader"></span>
+      
+      </ng-template>
+  <!-- End Episode list -->
+
+
+
 </div>
   <ng-template #loading>
     loading

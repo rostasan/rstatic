@@ -1,26 +1,26 @@
 <div class="episode content-panel">
-  <div class="episode__title">
-    <img src="assets/images/s.svg" alt="">
+    <img src="assets/images/e.svg" alt="">
     <br />
-
-    <span *ngIf="episode$ | async as episode; else title;">
+    <hr>
+    <a 
+      href="" 
+      class="btn" 
+      [routerLink]="['../episode/new']">
+        Create a New Episode
+    </a>
+  <div *ngIf="episodes$ | async as episodes; else loading;">
       {{ episode.title ? 'Edit' : 'Create' }} Episode
-    </span>
-    <ng-template #title>
-      ngif not working?
 
-    </ng-template>
+    <!-- <div class="message" *ngIf="!episodes.length">
+      Nothing here
+    </div> -->
     <br />
-
-  </div>
-  <div class="episode-form__delete">
-    <div *ngIf="episode$ | async as episode; else loading">
-
+    <div class="episode-form__delete">
       <div *ngIf="toggledContent">
         <button class="button button--delete" type="button" (click)="toggleContent()" *ngIf="toggledContent">
           Edit Episode
         </button>
-        <app-list-item [item]="episode" (remove)="removeEpisode($event)">
+        <app-list-item *ngFor="let episode of episodes" [item]="episode">
         </app-list-item>
       </div>
       <div *ngIf="!toggledContent">
@@ -33,8 +33,5 @@
 </div>
 <ng-template #loading>
   loading
-  <app-episode-form [episode]="episode" (create)="addEpisode($event)">
-
-  </app-episode-form>
 </ng-template>
 

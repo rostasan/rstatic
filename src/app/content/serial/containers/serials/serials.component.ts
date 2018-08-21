@@ -16,8 +16,6 @@ export class SerialsComponent implements OnInit, OnDestroy {
   serials$: Observable<Serial[]>;
   subscription: Subscription;
 
-
-
   constructor(
     private store: Store,
     private serialService: SerialService
@@ -30,8 +28,8 @@ export class SerialsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-
   }
+
   removeSerial(event: Serial) {
     this.serialService.removeSerial(event);
   }

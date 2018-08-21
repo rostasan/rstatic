@@ -1,3 +1,4 @@
+import { AngularFirestore } from 'angularfire2/firestore';
 
 import { User } from 'models/user';
 import { Store } from 'store';
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/do';
 
-
+// https://angularfirebase.com/lessons/role-based-permissions-and-authorization-with-firebase-auth/
 
 @Injectable()
 export class AuthService {
@@ -27,6 +28,7 @@ export class AuthService {
 
   constructor(
     private af: AngularFireAuth,
+    private afs: AngularFirestore,
     private store: Store,
   ) { }
 
@@ -42,6 +44,10 @@ export class AuthService {
     createUser(email: string, password: string) {
       return this.af.auth
         .createUserWithEmailAndPassword(email, password);
+    }
+
+    createUserDB() {
+
     }
 
     loginUser(email: string, password: string) {
