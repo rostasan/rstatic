@@ -34,7 +34,7 @@
     "core-js": "^2.4.1",
     "froala-editor": "^2.8.4",
     "ngx-bootstrap": "^3.0.1",
-    "node-forge": "^0.7.6",
+    "node-forge": "^0.10.0",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.1.0",
     "typescript": "^3.0.1",
