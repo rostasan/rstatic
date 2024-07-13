@@ -29,7 +29,7 @@
     "@tinymce/tinymce-angular": "^2.0.0",
     "angular-froala-wysiwyg": "^2.8.4",
     "angularfire2": "5.0.0-rc.11",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^5.0.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "froala-editor": "^2.8.4",
